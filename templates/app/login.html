@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepfake Detection Login</title>
+    <style>
+        /* Import Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        /* General Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        /* Layout Container */
+        .wrapper {
+            display: flex;
+            width: 90%;
+            max-width: 1200px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Left Section: Info */
+        .info-section {
+            flex: 1;
+            color: white;
+            max-width: 400px;
+            text-align: left;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .info-section h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .info-section p {
+            font-size: 16px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* Center Section: Image */
+        .image-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-section img {
+            width: 400px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+            animation: float 3s infinite ease-in-out;
+        }
+
+        /* Right Section: Login */
+        .login-section {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            animation: slideIn 1s ease-in-out;
+            max-width: 350px;
+        }
+
+        .login-section h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        /* Form Styling */
+        .input-container {
+            position: relative;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 16px;
+            transition: 0.3s;
+            outline: none;
+        }
+
+        input::placeholder {
+            color: transparent;
+        }
+
+        input:focus {
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0px 0px 12px rgba(255, 255, 255, 0.5);
+        }
+
+        .input-container label {
+            position: absolute;
+            top: 50%;
+            left: 12px;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            transition: 0.3s;
+            pointer-events: none;
+        }
+
+        input:focus + label,
+        input:not(:placeholder-shown) + label {
+            top: 5px;
+            font-size: 12px;
+            color: white;
+        }
+
+        /* Button */
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #ffffff, #e0e0e0);
+            color: #2575fc;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            text-transform: uppercase;
+            box-shadow: 0px 6px 12px rgba(255, 255, 255, 0.3);
+        }
+
+        button:hover {
+            background: white;
+            transform: scale(1.05);
+            box-shadow: 0px 8px 20px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Signup Link */
+        a {
+            display: block;
+            margin-top: 15px;
+            color: white;
+            font-size: 14px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            color: #cce7ff;
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .wrapper {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .info-section {
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .image-section img {
+                width: 80%;
+                height: auto;
+            }
+
+            .login-section {
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        
+        <!-- Left: Information Section -->
+        <div class="info-section">
+            <h1>Deepfake Detection System</h1>
+            <p>
+                Deepfake detection leverages AI algorithms to identify manipulated videos and images.  
+                Protect your identity and ensure authenticity in digital content using our advanced system.
+            </p>
+        </div>
+
+        <!-- Center: Image Section -->
+        <div class="image-section">
+            <img src="https://miro.medium.com/max/1456/1*tETsWw2Uu1iQ9Qy0XlR5Og.jpeg">
+        </div>
+
+        <!-- Right: Login Form -->
+        <div class="login-section">
+            <h2>Login</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="input-container">
+                    <input type="text" name="username" placeholder="Username" required>
+                    <label>Username</label>
+                </div>
+                <div class="input-container">
+                    <input type="password" name="password" placeholder="Password" required>
+                    <label>Password</label>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            <a href="/signup/">Don't have an account? Signup</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
